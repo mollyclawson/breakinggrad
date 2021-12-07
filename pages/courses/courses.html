@@ -12,10 +12,34 @@
 			request = new XMLHttpRequest();
 
             // Step 2: Open the JSON file at remote location
-			request.open("GET", "https://mollyclawson.github.io/cs20/json/song-list/song-list.json", true);
+			request.open("GET", "https://mollyclawson.github.io/pages/courses/courses.json", true);
 
+            // Step 3: set up callback for when HTTP response is returned (i.e., you get the JSON file back)
+            if (request.readyState == 4 && request.status == 200) {
 
+                // Step 5: when we get all the JSON data back, parse it and use it
+                theData = request.responseText;
+                returnHTML = theData;
+                data = JSON.parse(theData);
+
+                console.log(data);
+
+                // returnHTML += "<br><br><br>";
+                // for (i = 0; i < 10; i++) {
+                //     returnHTML += data[i]["title"] + "<br>";
+                //     returnHTML += "Artist: " + data[i]["artist"] + "<br>";
+                //     returnHTML += "Genre: " + data[i]["genre"] + "<br>";
+                //     returnHTML += "Released In " + data[i]["year"] + "<br><br>";
+                // }
+
+                document.getElementById('data').innerHTML = returnHTML;
+            } else if (request.readyState == 4 && request.status != 200) {
+                document.getElementById("data").innerHTML = "Whoops, something went terribly wrong!";
+            } else if (request.readyState == 3) {
+                document.getElementById("data").innerHTML = "Come back soon!";
+            }
         }
 
     </script>
+    <div id="data"></div>
 </body>
