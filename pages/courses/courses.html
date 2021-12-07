@@ -23,12 +23,13 @@
                     data = JSON.parse(theData);
 
                     returnHTML += "<br><br><br>";
-                    for (i = 0; i < 10; i++) {
-                        returnHTML += data[i]["title"] + "<br>";
-                        returnHTML += "Artist: " + data[i]["artist"] + "<br>";
-                        returnHTML += "Genre: " + data[i]["genre"] + "<br>";
-                        returnHTML += "Released In " + data[i]["year"] + "<br><br>";
-                    }
+                    console.log(theData);
+                    // for (i = 0; i < 10; i++) {
+                    //     returnHTML += data[i]["title"] + "<br>";
+                    //     returnHTML += "Artist: " + data[i]["artist"] + "<br>";
+                    //     returnHTML += "Genre: " + data[i]["genre"] + "<br>";
+                    //     returnHTML += "Released In " + data[i]["year"] + "<br><br>";
+                    // }
                     
                     document.getElementById('data').innerHTML = returnHTML;
                 }
@@ -61,5 +62,6 @@
 </head>
 <body>
     <h1>Hello World</h1>
+    <div id="data"></div>
 
 </body>
