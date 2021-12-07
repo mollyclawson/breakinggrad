@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Song List: JSON</title>
+        <meta charset="utf-8"/>
+        <script>
+            function loadData () {
+
+                /* Step 1: Make instance of XHR object...
+			    ...to make HTTP request after page is loaded*/
+			    request = new XMLHttpRequest();
+
+                // Step 2: Open the JSON file at remote location
+			    request.open("GET", "https://mollyclawson.github.io/cs20/json/song-list/song-list.json", true);
+
+                request.onreadystatechange = function() {
+                
+                    // Step 3: set up callback for when HTTP response is returned (i.e., you get the JSON file back)
+                    if (request.readyState == 4 && request.status == 200) {
+
+                        // Step 5: when we get all the JSON data back, parse it and use it
+                        theData = request.responseText;
+                        returnHTML = theData;
+                        data = JSON.parse(theData);
+
+                        returnHTML += "<br><br><br>";
+                        for (i = 0; i < 10; i++) {
+                            returnHTML += data[i]["title"] + "<br>";
+                            returnHTML += "Artist: " + data[i]["artist"] + "<br>";
+                            returnHTML += "Genre: " + data[i]["genre"] + "<br>";
+                            returnHTML += "Released In " + data[i]["year"] + "<br><br>";
+                        }
+                        
+                        document.getElementById('data').innerHTML = returnHTML;
+                    }
+                    else if (request.readyState == 4 && request.status != 200) {
+                        document.getElementById("data").innerHTML = "Whoops, something went terribly wrong!";
+                    }
+                    else if (request.readyState == 3) {
+                        document.getElementById("data").innerHTML = "Come back soon!";
+                    }
+			    }//end on readystate change
+                
+                // Step 4: fire off the HTTP request
+			    request.send();
+            }
+            function displayFiltered () {
+                selected = document.getElementById("genre").value;
+                returnHTML = "<br>"
+                for (i = 0; i < 10; i++) {
+                    if (data[i]["genre"] == selected) {
+                            returnHTML += data[i]["title"] + "<br>";
+                            returnHTML += "Artist: " + data[i]["artist"] + "<br>";
+                            returnHTML += "Genre: " + data[i]["genre"] + "<br>";
+                            returnHTML += "Released In " + data[i]["year"] + "<br><br>";
+                    }
+                }
+                document.getElementById('filtered').innerHTML = returnHTML;
+            }
+        </script>
 
     </head>
-    <body>
+    <body onload="loadData()">
         Hello world
+        <h2>The Data</h2>
+        <div id="data"></div>
     </body>
 </html>
