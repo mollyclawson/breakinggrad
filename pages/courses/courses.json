@@ -1,8 +1,6 @@
 [
     {
         "major-name": "Computer Science",
-        "major-electives": 3,
-        "systems-electives": 2,
         "math-nat": [
             {
                 "course-id": "MATH 32",
