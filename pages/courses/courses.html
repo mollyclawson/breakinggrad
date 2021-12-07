@@ -9,9 +9,11 @@
                 /* Step 1: Make instance of XHR object...
 			    ...to make HTTP request after page is loaded*/
 			    request = new XMLHttpRequest();
+                console.log("made the XHR object")
 
                 // Step 2: Open the JSON file at remote location
 			    request.open("GET", "https://mollyclawson.github.io/cs20/json/song-list/song-list.json", true);
+                console.log("opened the JSON file");
 
                 request.onreadystatechange = function() {
                 
@@ -22,6 +24,7 @@
                         theData = request.responseText;
                         returnHTML = theData;
                         data = JSON.parse(theData);
+                        console.log("got the data");
 
                         returnHTML += "<br><br><br>";
                         for (i = 0; i < 10; i++) {
