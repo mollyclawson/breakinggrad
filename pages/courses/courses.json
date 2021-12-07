@@ -1,0 +1,134 @@
+[
+    {
+        "major-name": "Computer Science",
+        "major-electives": 3,
+        "systems-electives": 2,
+        "math-nat": [
+            {
+                "course-id": "MATH 32",
+                "course-name": "Calculus I", 
+                "SHUs":  4
+            },
+            {
+                "course-id": "MATH 34",
+                "course-name": "Calculus II", 
+                "SHUs":  4
+            }, 
+            {
+                "course-id": "CS / MATH 61",
+                "course-name": "Discrete Mathematics", 
+                "SHUs":  3
+            }, 
+            {
+                "course-id": "MATH 70",
+                "course-name": "Linear Algebra", 
+                "SHUs":  3
+            }, 
+            {
+                "course-id": "PHY 11",
+                "course-name": "General Physics I w/ Lab", 
+                "SHUs":  5
+            },
+            {
+                "course-id": "CHEM 1",
+                "course-name": "Chemical Fundamentals w/ Lab", 
+                "SHUs":  5
+            }, 
+            {
+                "course-name": "MNS Elective"
+            },
+            {
+                "course-name": "Prob & Stat Elective"
+            }
+
+        ],
+        "hass": [
+                {
+                    "course-id": "ENG 1",
+                    "course-name": "Expository Writing", 
+                    "SHUs":  3
+                }, 
+                {
+                    "course-name": "HASS Humanities Elective"
+                }, 
+                {
+                    "course-name": "HASS Social Science Elective"
+                }, 
+                {
+                    "course-name": "HASS Ethics Elective"
+                }
+        ],
+        "engineering": [
+            {
+                "course-id": "EN 1",
+                "course-name": "Applications in Engineering", 
+                "SHUs":  3
+            }, 
+            {
+                "course-id": "EN 2",
+                "course-name": "Intro to Computing in Engineering", 
+                "SHUs":  3
+            }
+        ],
+        "core": [
+            {
+                "course-id": "CS 11",
+                "course-name": "Intro to Computer Science", 
+                "SHUs":  4
+            }, 
+            {
+                "course-id": "CS 15",
+                "course-name": "Data Structures", 
+                "SHUs":  4
+            },
+            {
+                "course-id": "CS 160",
+                "course-name": "Algorithms", 
+                "SHUs":  4
+            }, 
+            {
+                "course-id": "CS 40",
+                "course-name": "Machine Structures and Assembly-Language Prog.", 
+                "SHUs":  5
+            }, 
+            {
+                "course-id": "CS 97",
+                "course-name": "Senior Capstone Project I", 
+                "SHUs":  3
+            }, 
+            {
+                "course-id": "CS 105",
+                "course-name": "Programming Languages", 
+                "SHUs":  5
+            },
+            {
+                "course-id": "CS 98",
+                "course-name": "Senior Capstone Project II", 
+                "SHUs":  3
+            }, 
+            {
+                "course-id": "CS 170",
+                "course-name": "Computation Theory", 
+                "SHUs":  3
+            }, 
+            {
+                "course-name": "System Elective" 
+            }, 
+            {
+                "course-name": "System Elective" 
+            }, 
+            {
+                "course-name": "CS Elective" 
+            }, 
+            {
+                "course-name": "CS Elective" 
+            }, 
+            {
+                "course-name": "CS Elective" 
+            }, 
+            {
+                "course-name": "CS Social Context Elective" 
+            }
+        ]
+    }
+]
