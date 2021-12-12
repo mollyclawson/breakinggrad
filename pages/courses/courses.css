@@ -30,29 +30,47 @@ h2 {
 }
 
 .card-container {
-  height: 400px;
+  height: 480px;
   width: 50%;
   display: inline-block;
   margin: auto;
+  margin-bottom: 100px;
+  box-sizing: border-box;
 }
 
 .card {
   box-sizing: border-box;
-  height: 80%;
+  height: 100%;
   width: 60%;
   margin: 0 20%;
   /* margin: 40px; */
-  background-color: #e5e5e5;
   display: inline-block;
   text-align: center;
   font-family: "Roboto";
+  border-radius: 40px;
+}
+
+.course-list {
+  min-height: 150px;
+}
+
+.pink {
+  background-color: #ffd2cc;
+}
+
+.blue {
+  background-color: #8ab7de;
+}
+
+.yellow {
+  background-color: #ffcc5f;
 }
 
 .add-button {
   box-sizing: border-box;
   margin: 10px 25%;
   width: 50%;
-  background-color: #008cba;
+  background-color: #000;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -63,7 +81,7 @@ h2 {
 }
 
 .add-button:hover {
-  background-color: #009dcb;
+  background-color: #333;
 }
 
 select {
