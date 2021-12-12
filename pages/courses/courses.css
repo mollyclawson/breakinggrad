@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+html {
+  background-color: #bbbbbb;
+}
+
+.title {
+  width: 500px;
+  /* margin-left: auto;
+    margin-right: auto; */
+  text-align: center;
+  font-size: 64px;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80.5px;
+  margin: 107px auto 24px auto;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+}
+
+.container {
+  margin: 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.card-container {
+  height: 400px;
+  width: 50%;
+  display: inline-block;
+  margin: auto;
+}
+
+.card {
+  box-sizing: border-box;
+  height: 80%;
+  width: 60%;
+  margin: 0 20%;
+  /* margin: 40px; */
+  background-color: #e5e5e5;
+  display: inline-block;
+  text-align: center;
+  font-family: "Roboto";
+}
+
+.add-button {
+  box-sizing: border-box;
+  margin: 10px 25%;
+  width: 50%;
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: "Roboto";
+}
+
+.add-button:hover {
+  background-color: #009dcb;
+}
+
+select {
+  width: 80%;
+  margin: 5px 10%;
+  display: inline-block;
+  /* display: none; */
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.sml-button {
+  display: inline-block;
+}

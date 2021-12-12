@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Song List: JSON</title>
+        <title>Breaking Grad</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="courses.css">
         <script>
-            function loadData () {
 
+            userCourses = [];
+            for (i = 0; i < 8; i++) 
+                userCourses.push([]);
+
+            // for debugging purposes
+            function printCourses () {
+                for (var i = 0; i < userCourses.length; i++) {
+                    for (var j = 0; j < userCourses[i].length; j++) {
+                        arrText+=userCourses[i][j]+' ';
+                    }
+                    console.log(arrText);
+                    arrText='';
+                }
+            }
+
+
+            function loadData () {
                 /* Step 1: Make instance of XHR object...
 			    ...to make HTTP request after page is loaded*/
 			    request = new XMLHttpRequest();
@@ -19,51 +36,224 @@
                 
                     // Step 3: set up callback for when HTTP response is returned (i.e., you get the JSON file back)
                     if (request.readyState == 4 && request.status == 200) {
+                        returnHTML = "";
 
                         // Step 5: when we get all the JSON data back, parse it and use it
                         theData = request.responseText;
                         returnHTML = theData;
                         data = JSON.parse(theData);
                         console.log("got the data");
+                        console.log(data);
 
                         returnHTML += "<br><br><br>";
 
-                        for (i = 0; i < 5; i++) {
-                            returnHTML += data["core"][i] + "<br>";
-                        }
-                        
-                        document.getElementById('data').innerHTML = returnHTML;
-                    }
-                    else if (request.readyState == 4 && request.status != 200) {
-                        document.getElementById("data").innerHTML = "Whoops, something went terribly wrong!";
-                    }
-                    else if (request.readyState == 3) {
-                        document.getElementById("data").innerHTML = "Come back soon!";
+                        for (var i = 0; i < 8; i++) {
+                            console.log("****************** i is " + i + "************")
+                            makeSelect(data, i);
+                        }   
+
                     }
 			    }//end on readystate change
                 
                 // Step 4: fire off the HTTP request
 			    request.send();
             }
-            function displayFiltered () {
-                selected = document.getElementById("genre").value;
-                returnHTML = "<br>"
-                for (i = 0; i < 10; i++) {
-                    if (data[i]["genre"] == selected) {
-                            returnHTML += data[i]["title"] + "<br>";
-                            returnHTML += "Artist: " + data[i]["artist"] + "<br>";
-                            returnHTML += "Genre: " + data[i]["genre"] + "<br>";
-                            returnHTML += "Released In " + data[i]["year"] + "<br><br>";
-                    }
+
+            function addCourse(i, name) {
+                var select = document.getElementsByName("select-" + name)[i];
+                var value = select.options[select.selectedIndex].value;
+                userCourses[i].push(value);
+
+                console.log("after: ");
+                displayCourses(i);
+                for (i = 0; i < 8; i++) {
+                    var input = document.getElementById("hidden-input" + i); 
+                    input.value = userCourses[i];
                 }
-                document.getElementById('filtered').innerHTML = returnHTML;
             }
+
+            function displayCourses(i) {
+                var Lists = document.getElementsByName("courses");
+                var index = userCourses[i].length - 1;
+                console.log(index);
+                console.log(userCourses[i][index]);
+                var t = "";
+                t += "<div class='course'>" + userCourses[i][index] + "</div>"
+                Lists[i].innerHTML += t
+            }
+
+            function makeSelect(data, index) {
+                console.log("index is " + index);
+                divs = document.getElementsByName("select-container");
+                console.log(divs);
+                var t = "";
+                t = "<div name='math-nat' class='hidden'> <select name='select-math-nat' size='1'>";
+
+                for (i = 0; i < data[0]["math-nat"].length; i++) {
+                        t+= "<option> " + data[0]["math-nat"][i]["course-name"] + "</option>"
+                }
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'math-nat' + '\')"  >Add</button> <br/></div>'
+
+                t += "<div name='hass' class='hidden'> <select name='select-hass' size='1'>";
+                for (i = 0; i < data[0]["hass"].length; i++) {
+                        t+= "<option> " + data[0]["hass"][i]["course-name"] + "</option>"
+                }
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'hass' + '\')"  >Add</button> <br/></div>'
+
+                t += "<div name='engineering' class='hidden'> <select name='select-engineering' size='1'>";
+                for (i = 0; i < data[0]["engineering"].length; i++) {
+                        t+= "<option> " + data[0]["engineering"][i]["course-name"] + "</option>"
+                }
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'engineering' + '\')"  >Add</button> <br/></div>'
+
+
+                t += "<div name='core' class='hidden'> <select name='select-core' size='1'>";
+                for (i = 0; i < data[0]["core"].length; i++) {
+                        t+= "<option> " + data[0]["core"][i]["course-name"] + "</option>"
+                }
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'core' + '\')"  >Add</button> <br/></div>'
+
+                divs[index].innerHTML = t;
+                console.log("at the end of makeSelect");
+
+            }
+
+            function displaySelect(name, i) {
+                var select = document.getElementsByName(name)[i];
+                select.classList.add("show");
+                if (name === "math-nat") {
+                    toggleOffSelects("hass", "engineering", "core", i);
+                } else if (name === "hass") {
+                    toggleOffSelects("math-nat", "engineering", "core", i);
+                } else if (name === "engineering") {
+                    toggleOffSelects("hass", "math-nat", "core", i);
+                } else if (name === "core") {
+                    toggleOffSelects("hass", "engineering", "math-nat", i);
+                }
+            }
+
+            function toggleOffSelects(name1, name2, name3, i) {
+                console.log("in toggleOffSelects");
+                var select1 = document.getElementsByName(name1)[i];
+                select1.classList.remove("show");
+                select1.classList.add("hidden");
+                var select2 = document.getElementsByName(name2)[i];
+                select2.classList.remove("show");
+                select2.classList.add("hidden");
+                var select3 = document.getElementsByName(name3)[i];
+                select3.classList.remove("show");
+                select3.classList.add("hidden");
+            }
+
         </script>
 
     </head>
     <body onload="loadData()">
-        Hello world
-        <h2>The Data</h2>
+        <h1 class="title">Breaking Grad</h1>
+        <h2 class="subtitle">Track your Degree Progress</h2>
         <div id="data"></div>
+        <div class="container">
+            <div class="card-container">
+                <div class="card">
+                    <h3>Freshman Fall</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 0)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 0)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 0)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 0)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Freshman Spring</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 1)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 1)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 1)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 1)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Sophomore Fall</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 2)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 2)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 2)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 2)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Sophomore Spring</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 3)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 3)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 3)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 3)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Junior Fall</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 4)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 4)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 4)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 4)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Junior Spring</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 5)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 5)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 5)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 5)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Senior Fall</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 6)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 6)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 6)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 6)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Senior Spring</h3>
+                    <div name="courses"></div>
+                    <button class="add-button" onclick="displaySelect('math-nat', 7)">+ Math / Nat. Science</button>
+                    <button class="add-button" onclick="displaySelect('hass', 7)">+ HASS Course</button>
+                    <button class="add-button" onclick="displaySelect('engineering', 7)">+ Engineering Course</button>
+                    <button class="add-button" onclick="displaySelect('core', 7)">+ CS Major Course</button>
+                    <div name="select-container"></div>
+                </div>
+            </div>
+            <div>
+                <form method='post' action='http://localhost:8080/process'>
+                    <button>Save this Schedule</button>
+                    <input type="text" id="hidden-input0" name="courses0"/>
+                    <input type="text" id="hidden-input1" name="courses1"/>
+                    <input type="text" id="hidden-input2" name="courses2"/>
+                    <input type="text" id="hidden-input3" name="courses3"/>
+                    <input type="text" id="hidden-input4" name="courses4"/>
+                    <input type="text" id="hidden-input5" name="courses5"/>
+                    <input type="text" id="hidden-input6" name="courses6"/>
+                    <input type="text" id="hidden-input7" name="courses7"/>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
