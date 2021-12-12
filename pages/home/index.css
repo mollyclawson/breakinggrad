@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins";
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("background1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+h1 {
+  padding-top: 128px;
+  font-size: 72px;
+  margin-bottom: 0;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+button {
+  background-color: #8ab7de;
+  font-size: 36px;
+  text-decoration: none;
+  font-family: "Poppins";
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 80px;
+}
+
+button:hover {
+  background-color: #79a6cd;
+}

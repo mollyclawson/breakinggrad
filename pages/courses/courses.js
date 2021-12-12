@@ -37,6 +37,8 @@ http.createServer(function (req, res)
                 if (err) throw err;
                 var dbo = db.db("breaking-grad");
                 var coll = dbo.collection("user-data");
+
+                coll.deleteMany({"User": "molly.clawson@tufts.edu"});
     
                 var newData = {"User": "molly.clawson@tufts.edu", "Schedule": userCourses}
               
