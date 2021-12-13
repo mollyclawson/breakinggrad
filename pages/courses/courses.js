@@ -17,7 +17,8 @@ http.createServer(function (req, res)
         res.write("in the default");
 
     } else if (req.url == "/process") {
-        res.write('<div> Your schedule has been saved!! </div>');
+        res.write('<html><head><title>Your Order!</title><link rel="stylesheet" type="text/css" href="courses.css"></head><body><div> Your schedule has been saved!! </div></body></html>');
+
         pdata = "";
 		req.on('data', data => {
             pdata += data.toString();
