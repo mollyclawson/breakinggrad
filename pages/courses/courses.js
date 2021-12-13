@@ -8,7 +8,7 @@ const url = "mongodb+srv://mollyclaw:Whiplash2015@cluster0.yqtdj.mongodb.net/myF
 
 app.use(express.static(path.join(__dirname, `public`)));
 
-http.createServer(function (req, res) 
+http.createServer(function (req, res)
 {
     res.writeHead(200, {'Content-Type':'text/html'});
 
@@ -17,7 +17,7 @@ http.createServer(function (req, res)
         res.write("in the default");
 
     } else if (req.url == "/process") {
-        res.write("<div> Your schedule has been saved! </div>");
+        res.write('<div> Your schedule has been saved!! </div>');
         pdata = "";
 		req.on('data', data => {
             pdata += data.toString();
@@ -39,11 +39,11 @@ http.createServer(function (req, res)
                 var coll = dbo.collection("user-data");
 
                 coll.deleteMany({"User": "molly.clawson@tufts.edu"});
-    
+
                 var newData = {"User": "molly.clawson@tufts.edu", "Schedule": userCourses}
-              
+
                 coll.insertOne(newData);
-                console.log(newData);    
+                console.log(newData);
               });
 		});
     }
