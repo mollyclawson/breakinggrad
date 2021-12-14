@@ -16,7 +16,13 @@ http.createServer(function (req, res)
         console.log("1");
         res.write("in the default");
 
-    } else if (req.url == "/process") {
+    } 	else if (req.url =="/getSchedule") {
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.write('Hello World!');
+		res.end();
+    }
+	
+	else if (req.url == "/process") {
         res.write('<html><head><title>Your Schedule Has Been Saved!</title><style type="text/css">' +
         '@import url("https://fonts.googleapis.com/css?family=Poppins");\
         body {\
