@@ -15,7 +15,7 @@
 					console.log("5 - response received");
 					result = request.responseText;
 					data = JSON.parse(result);
-					document.getElementById("quote").innerHTML ="Quote of the day: " + data["quote"]["body"]; 		
+					qotd = document.getElementById("quote").innerHTML = data["quote"]["body"]; 		
 				}
 				else if (request.readyState == 4 && request.status != 200) {
 					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
@@ -35,6 +35,9 @@
     <div class="main">
         <h1>Breaking Grad</h1>
         <h2>Making degree Progress Easy</h2>
+	<script>
+		document.write(qotd);
+	</script>
         <button onclick="window.location.href = '../courses/courses.html'">
             Get started
         </button>
