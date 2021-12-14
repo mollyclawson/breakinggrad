@@ -23,7 +23,7 @@
 	    
 	    function getSchedule() {
 			let data = {element: "barium"};
-		    fetch("https://breaking-grad.herokuapp.com/getSchedule", {
+		    fetch("http://www.whateverorigin.org/get?url=" + encodeURIComponent("https://breaking-grad.herokuapp.com/getSchedule"), {
   				method: "POST",
   				headers: {'Content-Type': 'application/json'},
   				body: JSON.stringify(data)
