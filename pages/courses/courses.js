@@ -60,7 +60,7 @@ http.createServer(function (req, res)
 
             MongoClient.connect(url, function(err, db) {
                 if (err) throw err;
-                alert("YO!");
+                console.log("Connecting to Mongo Client.");
                 var dbo = db.db("breaking-grad");
                 var coll = dbo.collection("user-data");
 
