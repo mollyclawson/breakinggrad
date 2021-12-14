@@ -62,8 +62,16 @@
             function addCourse(i, name) {
                 var select = document.getElementsByName("select-" + name)[i];
                 var value = select.options[select.selectedIndex].value;
-                userCourses[i].push(value);
-
+		var length = userCourses[i].length;
+		var exists = false;
+		for (var j = 0; j < length; j++){
+		    if (userCourses[i][j] == value){
+		        exists = true;
+		    }
+		}
+		if(!exists){
+	 	    userCourses[i].push(value);
+		}
                 console.log("after: ");
                 displayCourses(i);
                 for (i = 0; i < 8; i++) {
@@ -79,8 +87,7 @@
 		for (var j = 0; j < length; j++){
 		    if (userCourses[i][j] == value){
 		        userCourses[i].splice(j,1);
-		    } else {
-		    }
+		    } 
 		}
 		console.log("after: ");
                 displayCourses(i);

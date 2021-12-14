@@ -60,6 +60,7 @@ http.createServer(function (req, res)
 
             MongoClient.connect(url, function(err, db) {
                 if (err) throw err;
+                console.log("Connecting to Mongo Client.");
                 var dbo = db.db("breaking-grad");
                 var coll = dbo.collection("user-data");
 
@@ -74,5 +75,5 @@ http.createServer(function (req, res)
     }
     res.end();
 
-}).listen(process.env.PORT || 3000);
+}).listen(process.env.PORT);
 
