@@ -24,10 +24,23 @@ http.createServer(function (req, res)
             text-align: center;\
             font-family: "Poppins";\
             font-size: 72px;\
+        }\
+        button {\
+          background-color: #8ab7de;\
+          font-size: 36px;\
+          text-decoration: none;\
+          font-family: "Poppins";\
+          color: #fff;\
+          border: none;\
+          border-radius: 4px;\
+          margin-top: 80px;\
+        }\
+        button:hover {\
+          background-color: #79a6cd;\
         }' +
         '</style></head><body><div> Your schedule has been saved! </div>\
         <button onclick="window.location.href = "https://mollyclawson.github.io/breakinggrad/pages/courses/courses.html"">\
-            Get started\
+            Go back to course selection\
         </button></body></html>');
 
     //     <style type="text/css">
