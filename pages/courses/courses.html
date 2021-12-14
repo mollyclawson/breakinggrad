@@ -71,6 +71,24 @@
                     input.value = userCourses[i];
                 }
             }
+		
+	    function removeCourse(i, name) {
+		var select = document.getElementsByName("select-" + name)[i];
+                var value = select.options[select.selectedIndex].value;
+		var length = userCourses[i].length;
+		for (var j = 0; j < length; j++){
+		    if (userCourses[i][j] == value){
+		        userCourses[i].splice(j,1);
+		    }
+		}
+		console.log("after: ");
+                displayCourses(i);
+                for (i = 0; i < 8; i++) {
+                    var input = document.getElementById("hidden-input" + i); 
+                    input.value = userCourses[i];
+                }
+		   
+	    }
 
             function displayCourses(i) {
                 var Lists = document.getElementsByName("courses");
