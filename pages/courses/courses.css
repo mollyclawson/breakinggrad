@@ -103,3 +103,13 @@ select {
   display: inline-block;
   margin: 5px;
 }
+
+button {
+  background-color: #8ab7de;
+  font-size: 24px;
+  text-decoration: none;
+  font-family: "Poppins";
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
