@@ -4,7 +4,7 @@ var express = require('express');
 const path = require('path');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://mollyclaw:Whiplash2015@cluster0.yqtdj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const url = "mongodb+srv://mollyclaw:Whiplash2015@cluster0.yqtdj.mongodb.net/breaking-grad?retryWrites=true&w=majority";
 
 app.use(express.static(path.join(__dirname, `public`)));
 
