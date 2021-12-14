@@ -73,6 +73,7 @@
             }
 		
 	    function removeCourse(i, name) {
+		alert("The name is " + name);
 		var select = document.getElementsByName("select-" + name)[i];
                 var value = select.options[select.selectedIndex].value;
 		var length = userCourses[i].length;
