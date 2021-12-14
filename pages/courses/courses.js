@@ -23,7 +23,7 @@ http.createServer(function (req, res)
             background-color: #fff8e8;\
             text-align: center;\
             font-family: "Poppins";\
-            font-size: 72px;\
+            font-size: 45px;\
         }\
         button {\
           background-color: #8ab7de;\
