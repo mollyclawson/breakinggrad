@@ -23,7 +23,7 @@
 	    
 	    async function getSchedule() {
 			let data = {element: "barium"};
-		    fetch("https://breaking-grad.herokuapp.com/", {
+		    fetch("https://breaking-grad.herokuapp.com/getSchedule", {
   				method: "POST",
   				headers: {'Content-Type': 'application/json'} 
   			body: JSON.stringify(data)
