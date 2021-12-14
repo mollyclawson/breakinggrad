@@ -25,7 +25,10 @@ http.createServer(function (req, res)
             font-family: "Poppins";\
             font-size: 72px;\
         }' +
-        '</style></head><body><div> Your schedule has been saved! </div></body></html>');
+        '</style></head><body><div> Your schedule has been saved! </div>\
+        <button onclick="window.location.href = "./pages/courses/courses.html"">\
+            Get started\
+        </button></body></html>');
 
     //     <style type="text/css">
     //     body {
