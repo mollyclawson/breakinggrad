@@ -18,9 +18,12 @@ http.createServer(function (req, res)
 
     } else if (req.url == "/process") {
         res.write('<html><head><title>Your Schedule Has Been Saved!</title><style type="text/css">' +
-        'body {\
-                background-color: #9fcbff;\
-                font-family: Arial, Helvetica, sans-serif;\
+        '@import url("https://fonts.googleapis.com/css?family=Poppins");\
+        body {\
+            background-color: #fff8e8;\
+            text-align: center;\
+            font-family: "Poppins";\
+            font-size: 72px;\
         }' +
         '</style></head><body><div> Your schedule has been saved! </div></body></html>');
 
