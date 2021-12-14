@@ -92,26 +92,26 @@
                 for (i = 0; i < data[0]["math-nat"].length; i++) {
                         t+= "<option> " + data[0]["math-nat"][i]["course-name"] + "</option>"
                 }
-                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'math-nat' + '\')"  >Add</button> <br/></div>'
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'math-nat' + '\')"  >Add</button> <br/> <button class="small-btn" onclick="removeCourse(' + index + ', \'' + 'math-nat' + '\')"  >Remove</button> <br/> </div>'
 
                 t += "<div name='hass' class='hidden'> <select name='select-hass' size='1'>";
                 for (i = 0; i < data[0]["hass"].length; i++) {
                         t+= "<option> " + data[0]["hass"][i]["course-name"] + "</option>"
                 }
-                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'hass' + '\')"  >Add</button> <br/></div>'
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'hass' + '\')"  >Add</button> <br/> <button class="small-btn" onclick="removeCourse(' + index + ', \'' + 'math-nat' + '\')"  >Remove</button> <br/> </div>'
 
                 t += "<div name='engineering' class='hidden'> <select name='select-engineering' size='1'>";
                 for (i = 0; i < data[0]["engineering"].length; i++) {
                         t+= "<option> " + data[0]["engineering"][i]["course-name"] + "</option>"
                 }
-                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'engineering' + '\')"  >Add</button> <br/></div>'
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'engineering' + '\')"  >Add</button> <br/> <button class="small-btn" onclick="removeCourse(' + index + ', \'' + 'math-nat' + '\')"  >Remove</button> <br/> </div>'
 
 
                 t += "<div name='core' class='hidden'> <select name='select-core' size='1'>";
                 for (i = 0; i < data[0]["core"].length; i++) {
                         t+= "<option> " + data[0]["core"][i]["course-name"] + "</option>"
                 }
-                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'core' + '\')"  >Add</button> <br/></div>'
+                t+= '</select> <button class="small-btn" onclick="addCourse(' + index + ', \'' + 'core' + '\')"  >Add</button> <br/> <button class="small-btn" onclick="removeCourse(' + index + ', \'' + 'math-nat' + '\')"  >Remove</button> <br/> </div>'
 
                 divs[index].innerHTML = t;
                 console.log("at the end of makeSelect");
