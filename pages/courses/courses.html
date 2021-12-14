@@ -78,9 +78,13 @@
 		var length = userCourses[i].length;
 		for (var j = 0; j < length; j++){
 		    if (userCourses[i][j] == value){
+			    alert("We found the class!");
 		        userCourses[i].splice(j,1);
+		    } else {
+	   	    	alert("we did not find the course yet");
 		    }
 		}
+		alert("No course here");
 		console.log("after: ");
                 displayCourses(i);
 		   
@@ -91,7 +95,7 @@
                 var Lists = document.getElementsByName("courses");
                 var index = userCourses[i].length;
                 console.log(index);
-                console.log(userCourses[i][index]);
+                //console.log(userCourses[i][index]);
                 var t = "";
 		for (var j = 0; j < index; j++){
                 	t += "<div class='course'>" + userCourses[i][j] + "</div>";
