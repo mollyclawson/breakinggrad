@@ -26,7 +26,7 @@ http.createServer(function (req, res)
             font-size: 72px;\
         }' +
         '</style></head><body><div> Your schedule has been saved! </div>\
-        <button onclick="window.location.href = "./pages/courses/courses.html"">\
+        <button onclick="window.location.href = "https://mollyclawson.github.io/breakinggrad/pages/courses/courses.html"">\
             Get started\
         </button></body></html>');
 
