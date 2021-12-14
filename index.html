@@ -3,13 +3,42 @@
     <title>Breaking Grad</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="index.css">
+    	<script>
+		function getQuote() {
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+		request.open("GET", "https://favqs.com/api/qotd", true)
+			console.log("2 - opened request file");
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+				if (request.readyState == 4 && request.status == 200) {
+					console.log("5 - response received");
+					result = request.responseText;
+					data = JSON.parse(result);
+					qotd = document.getElementById("quote").innerHTML = data["quote"]["body"]; 		
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+				}
+				else if (request.readyState == 3) {
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+				}
+			}
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
 
 </head>
-<body>
+<body onload="getQuote()">
+    <div id="quote"></div>
     <div class="main">
         <h1>Breaking Grad</h1>
         <h2>Making degree Progress Easy</h2>
-        <button onclick="window.location.href = './pages/courses/courses.html'">
+	<script>
+		document.write(qotd);
+	</script>
+        <button onclick="window.location.href = '../courses/courses.html'">
             Get started
         </button>
     </div>
