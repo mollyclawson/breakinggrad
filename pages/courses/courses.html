@@ -22,14 +22,18 @@
             }
 	    
 	    function getSchedule() {
-			let data = {element: "barium"};
-		    fetch("http://www.whateverorigin.org/get?url=" + encodeURIComponent("https://breaking-grad.herokuapp.com/getSchedule"), {
-  				method: "POST",
-  				headers: {'Content-Type': 'application/json'},
-  				body: JSON.stringify(data)
-			}).then(res => {
-  				console.log("Request complete! response:", res);
-			});
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://www.whateverorigin.org/get?url=" + encodeURIComponent("https://breaking-grad.herokuapp.com/getSchedule", true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+    			value: 'value'
+		}));
+		xhr.onload = function() {
+  			console.log("HELLO")
+  			console.log(this.responseText);
+  			var data = JSON.parse(this.responseText);
+  			console.log(data);
+		}	
 		    
 	    }
 
