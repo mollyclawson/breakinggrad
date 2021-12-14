@@ -39,24 +39,9 @@ http.createServer(function (req, res)
           background-color: #79a6cd;\
         }' +
         '</style></head><body><div> Your schedule has been saved! </div>\
-        <button onclick="window.location.href = "https://mollyclawson.github.io/breakinggrad/pages/courses/courses.html"">\
+        <button onclick="history.back()">\
             Go back to course selection\
         </button></body></html>');
-
-    //     <style type="text/css">
-    //     body {
-    //         background-color: #9fcbff;
-    //         font-family: Arial, Helvetica, sans-serif;
-    //     }
-    //     h1 {
-    //         background-color: #c0d8f4;
-    //         color: #00b347;
-    //     }
-    //     p:hover{
-    //         background-color: #c0d8f4;
-    //     }
-    // </style>
-
 
         pdata = "";
 		req.on('data', data => {
