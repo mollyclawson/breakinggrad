@@ -73,20 +73,15 @@
             }
 		
 	    function removeCourse(i, name) {
-		alert("The name is " + name);
 		var select = document.getElementsByName("select-" + name)[i];
                 var value = select.options[select.selectedIndex].value;
 		var length = userCourses[i].length;
-		alert("We're in the remove function!! The value is: " + value + " and the first array data is: " + userCourses[i][0]);
 		for (var j = 0; j < length; j++){
 		    if (userCourses[i][j] == value){
-			    alert("We found the class!");
 		        userCourses[i].splice(j,1);
 		    } else {
-	   	    	alert("we did not find the course yet");
 		    }
 		}
-		alert("No course here");
 		console.log("after: ");
                 displayCourses(i);
 		for (i = 0; i < 8; i++) {
@@ -96,7 +91,6 @@
 	    }
 
             function displayCourses(i) {
-		// I think the displayCourses functiom should just start over and display all of the courses instead of just adding one each time
                 var Lists = document.getElementsByName("courses");
                 var index = userCourses[i].length;
                 console.log(index);
