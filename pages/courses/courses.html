@@ -23,7 +23,7 @@
 	    
 	    function getSchedule() {
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "http://www.whateverorigin.org/get?url=" + encodeURIComponent("https://breaking-grad.herokuapp.com/getSchedule", true));
+		xhr.open("POST", "https://breaking-grad.herokuapp.com/getSchedule", true);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.send(JSON.stringify({
     			value: 'value'
