@@ -76,6 +76,7 @@
 		var select = document.getElementsByName("select-" + name)[i];
                 var value = select.options[select.selectedIndex].value;
 		var length = userCourses[i].length;
+		alert("We're in the remove function!! The value is: " + value + " and the first array data is: " + userCourses[i][0]);
 		for (var j = 0; j < length; j++){
 		    if (userCourses[i][j] == value){
 			    alert("We found the class!");
