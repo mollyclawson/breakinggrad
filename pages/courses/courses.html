@@ -87,13 +87,16 @@
 	    }
 
             function displayCourses(i) {
+		// I think the displayCourses functiom should just start over and display all of the courses instead of just adding one each time
                 var Lists = document.getElementsByName("courses");
-                var index = userCourses[i].length - 1;
+                var index = userCourses[i].length;
                 console.log(index);
                 console.log(userCourses[i][index]);
                 var t = "";
-                t += "<div class='course'>" + userCourses[i][index] + "</div>"
-                Lists[i].innerHTML += t
+		for (var j = 0; j < index; j++){
+                	t += "<div class='course'>" + userCourses[i][j] + "</div>";
+		}
+                Lists[i].innerHTML = t;
             }
 
             function makeSelect(data, index) {
