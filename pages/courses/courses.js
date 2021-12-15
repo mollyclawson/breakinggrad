@@ -21,19 +21,6 @@ http.createServer(function (req, res)
 
     } 	
 	else if (req.url =="/getSchedule") {
-		console.log("Doing getSchedule");
-
-	  if (req.method === 'OPTIONS') {
-		    res.writeHead(204, headers);
-		    res.end();
-		    return;
-	  }
-
-	  if (['GET', 'POST'].indexOf(req.method) > -1) {
-		    	res.writeHead(200, headers);
-		    	res.end('Hello World');
-		    	return;
-	  }
 	    
 	    console.log("Get schedule activated.");
 		res.writeHead(200, {'Content-Type': 'text/plain'});
