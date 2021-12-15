@@ -21,6 +21,7 @@ http.createServer(function (req, res)
 
     } 	
 	else if (req.url =="/getSchedule") {
+		console.log("Doing getSchedule");
 	    const headers = {
 		    'Access-Control-Allow-Origin': '*',
 		    'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
