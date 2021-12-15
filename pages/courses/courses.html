@@ -21,24 +21,24 @@
                 }
             }
 	    
-	    function getSchedule() {
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "https://breaking-grad.herokuapp.com/getSchedule", true);
-		xhr.setRequestHeader('Content-Type', 'application/json');
-		xhr.send(JSON.stringify({
-    			value: 'value'
-		}));
-		xhr.onload = function() {
-  			console.log("HELLO")
-  			console.log(this.responseText);
-  			var data = JSON.parse(this.responseText);
-  			console.log(data);
-		}	
+// 	    function getSchedule() {
+// 		var xhr = new XMLHttpRequest();
+// 		xhr.open("POST", "https://breaking-grad.herokuapp.com/getSchedule", true);
+// 		xhr.setRequestHeader('Content-Type', 'application/json');
+// 		xhr.send(JSON.stringify({
+//     			value: 'value'
+// 		}));
+// 		xhr.onload = function() {
+//   			console.log("HELLO")
+//   			console.log(this.responseText);
+//   			var data = JSON.parse(this.responseText);
+//   			console.log(data);
+// 		}	
 		    
-	    }
+// 	    }
 
             function loadData () {
-				getSchedule();
+				//getSchedule();
                 /* Step 1: Make instance of XHR object...
 			    ...to make HTTP request after page is loaded*/
 			    request = new XMLHttpRequest();
