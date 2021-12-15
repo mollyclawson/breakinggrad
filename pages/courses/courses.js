@@ -6,7 +6,14 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://mollyclaw:Whiplash2015@cluster0.yqtdj.mongodb.net/breaking-grad?retryWrites=true&w=majority";
 
-app.use(express.static(path.join(__dirname, `public`)));
+//app.use(express.static(path.join(__dirname, `public`)));
+// Enable CORS
+app.use(function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+   next();
+});
 
 http.createServer(function (req, res)
 {
