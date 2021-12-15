@@ -11,9 +11,9 @@ app.use(express.static(path.join(__dirname, `public`)));
 http.createServer(function (req, res)
 {
 	console.log("Testing printing");
-  res.writeHead(405, headers);
-  res.end(`${req.method} is not allowed for the request.`);
-    res.writeHead(200, {'Content-Type':'text/html'});
+//   res.writeHead(405, headers);
+//   res.end(`${req.method} is not allowed for the request.`);
+//     res.writeHead(200, {'Content-Type':'text/html'});
 
     if (req.url == "/") {
         console.log("1");
