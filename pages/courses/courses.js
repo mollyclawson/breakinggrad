@@ -36,9 +36,9 @@ http.createServer(function (req, res)
 	  }
 
 	  if (['GET', 'POST'].indexOf(req.method) > -1) {
-			res.setHeader('Access-Control-Allow-Origin', '*');
-			res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
-			res.setHeader('Access-Control-Max-Age', 2592000);
+// 			res.setHeader('Access-Control-Allow-Origin', '*');
+// 			res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+// 			res.setHeader('Access-Control-Max-Age', 2592000);
 		    	res.writeHead(200, headers);
 		    	res.end('Hello World');
 		    	return;
